@@ -1,0 +1,12 @@
+{% extends "pages/accounts/page2.html" %}
+{% block title %}
+SignUp
+{%  endblock %}
+{%  load crispy_forms_tags %}
+{% block content %}
+<form method="post" class="tranfer-data">
+    {{form|crispy}}
+    {% csrf_token %}
+    <button type="submit" id="submitAcount">Post</button>
+</form>
+{%  endblock %}p

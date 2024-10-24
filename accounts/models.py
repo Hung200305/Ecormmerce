@@ -1,18 +1,22 @@
-from cgi import maxlen
+# from cgi import maxlen
 from datetime import timezone
 from email.policy import default
 
 from django.contrib.auth.models import AbstractUser, PermissionsMixin, UserManager
 from django.db.models import EmailField
 from django.forms import models
+from django.db import models
 
 
 class User(AbstractUser, PermissionsMixin):
     email = models.EmailField(max_length=40 ,unique=True)
-    password = models.CharField(max_length=40, blank=False)
+    # password = models.CharField(max_length=40, blank=False)
+
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
     objects = UserManager()
-    USERNAME_FIELD = 'email'
 
     def save(self, *args, **kwargs):
         super(User, self).save(*args, **kwargs)

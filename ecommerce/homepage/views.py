@@ -1,26 +1,21 @@
-# HttpResponse is used to
-# pass the information
-# back to view
-from django.http import HttpResponse
-from django.shortcuts import render
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, reverse
+
+from ecommerce.page2.views import render_account
 
 
-# Defining a function which
-# will receive request and
-# perform task depending
-# upon function definition
-# def hello_geeks (request) :
-#
-# 	# This will return Hello Geeks
-# 	# string as HttpResponse
-# 	context = {
-# 		'username': 'John Doe',
-# 		'age': 30,
-# 		'hobbies': ['Reading', 'Traveling', 'Coding']
-# 	}
-# 	return render(request, 'pages/homepage/template.html',  context)
-
-# def sign_Up(request) :
-# 	return render(request, 'page2.html')
+# from .models import *
+# from cart.models import Cart
+# from accounts.models import Profile
 
 
+# Create your views here.
+
+
+def render_homepage(request):
+    context = {
+        'signUp': render_account
+    }
+    return render(request, 'pages/homepage/template.html', context)

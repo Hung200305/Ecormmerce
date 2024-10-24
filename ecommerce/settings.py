@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -73,19 +74,14 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ecormmerce',
-        'USER': 'ecormmerce',
-        'PASSWORD': 'ecormmerce',
+        'USER': 'postgres',
+        'PASSWORD': '0000',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -133,3 +129,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SECRET_KEY = '-g2(q&=rgat-q-%uvi^k1@p!*^ouvzt4o^mf&8j+*vunxvgzxa'
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',  # Đảm bảo cái này có mặt
+    'django.contrib.contenttypes',  # Cần có contenttypes cho hệ thống permission
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'accounts',
+]
+
+AUTH_USER_MODEL = 'accounts.User'
+
+SIGNUP_REDIRECT_URL = '/'
